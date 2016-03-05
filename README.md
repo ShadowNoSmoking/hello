@@ -2,9 +2,9 @@
 ## github托管静态页面测试
 ### git测试
 
-1. git clone
-
 ***
+
+#### 1. git clone
 
 远程操作的第一步，通常是从远程主机克隆一个版本库，这是就要用git clone命令
 
