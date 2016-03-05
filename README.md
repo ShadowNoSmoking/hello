@@ -28,5 +28,6 @@ clone**的第二个参数
 为了便于管理，Git要求每个远程主机必须指定一个主机名。**git remote**命令就用于管理主机名。不带选项的时候，**git remote**命令列出所有远程主机。
 
 `$ git remote
-	origin
+
+ origin
 `
