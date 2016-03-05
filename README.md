@@ -29,3 +29,19 @@ clone**的第二个参数
 
 	$ git remote
 	origin
+
+使用**-v**选项，可以参看远程主机的网址。
+
+	$ git remote -v
+	origin  https://github.com/tenterrain/hello.git(fetch)
+	origin  https://github.com/tenterrain/hello.git(push)
+
+上面的命令表示，当前只有一台远程主机，叫做origin，以及它的网址。
+
+克隆版本库的时候，所使用的远程主机自动被Git命名为**origin**。如果想用其他的主机名，需要用**git clone**命令的**-o**选项指定
+
+	$ git clone -o hello https://github.com/tenterrain/hello.git
+	$ git remote
+	hello
+
+上面的命令表示，克隆的时候，指定远程主机名为hello
