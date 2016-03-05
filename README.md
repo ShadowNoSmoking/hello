@@ -65,3 +65,34 @@ clone**的第二个参数
 ***
 
 #### 3. git fetch
+
+一旦远程主机的版本库有了更新(Git术语叫做commit)，余姚将这些更新取回本地，这时就要用到**git fetch**命令。
+
+`$ git fetch origin master`
+
+所有取回的更新，在本地主机上都要用"**远程主机名/分支名**"的形式读取。比如**origin**主机的**master**分支，就要用**origin/master**读取，切换分支命令为**git checkout origin/master**。
+
+**git branch**命令的**-r**选项，可以用来查看远程分支，**-a**选项查看所有分支。
+
+	$ git branch -r
+	origin/master
+	$ git branch -a
+	* master
+	  remotes/origin/master
+
+上面的命令表示，本地主机的当前分支是**master**，远程分支是**origin/master**。
+
+取回远程主机的更新后，可以在它的基础上，使用**git checkout**命令创建一个新的分支。
+
+`$ git checkout -b newBranch origin/master`
+
+上面的命令表示，在**origin/master**的基础上，创建一个新分支。
+
+此外，也可以使用**git merge**命令或者**git rebase**命令，在本地分支上合并远程分支。
+
+	$ git merge origin/master
+	# 或者
+	$ git rebase origin/master
+
+上面的命令表示在当前分支上，合并**origin/master**;
+	
