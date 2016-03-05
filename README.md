@@ -45,3 +45,23 @@ clone**的第二个参数
 	hello
 
 上面的命令表示，克隆的时候，指定远程主机名为hello
+
+**git remote show**命令加上主机名，可以查看该主机的详细信息。
+
+`$ git remote show <主机名>`
+
+**git remote add**命令用于添加远程主机。
+
+`$ git remote add <主机名> <网址>`
+
+**git remote rm**用于删除远程主机。
+
+`$ git remote rm <主机名>`
+
+**git remote rename**用于远程主机改名
+
+`$ git remote rename <原主机名> <新主机名>`
+
+***
+
+#### 3. git fetch
