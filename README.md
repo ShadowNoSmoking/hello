@@ -66,7 +66,19 @@ clone**的第二个参数
 
 #### 3. git fetch
 
-一旦远程主机的版本库有了更新(Git术语叫做commit)，余姚将这些更新取回本地，这时就要用到**git fetch**命令。
+一旦远程主机的版本库有了更新(Git术语叫做commit)，需要将这些更新取回本地，这时就要用到**git fetch**命令。
+
+`$ git fetch <远程主机名>`
+
+上面的命令将某个远程主机的更新，全部取回本地。
+
+**git fetch**命令通常用来查看其他人的进程，因为它取回的代码对你本地的开发代码没有影响。
+
+默认情况下，**git fetch**取回所有分支(branch)的更新。如果只想取回特定分支的更新，可以指定分支名。
+
+`$ git fetch <远程主机名> <分支名>`
+
+比如，取回**origin**主机的**master**分支。
 
 `$ git fetch origin master`
 
@@ -95,4 +107,44 @@ clone**的第二个参数
 	$ git rebase origin/master
 
 上面的命令表示在当前分支上，合并**origin/master**;
-	
+
+***
+
+#### 4. git pull
+
+**git pull**命令的作用是，取回远程主机的某个分支的更新，再与本地的指定分支合并。
+
+`$ git pull <远程主机名> <远程分支名>:<本地分支名>`
+
+比如，取回**origin**主机的**gh-pages**分支，与本地的**master**分支合并，需要写成这样。
+
+`$ git pull origin gh-pages:master`
+
+如果远程分支是与当前分支合并，则冒号后面的部分可以省略。
+
+`$ git pull origin gh-pages`
+
+上面的命令表示，取回**origin/gh-pages**分支，再与当前分支合并。实质上，这等同于先做**git fetch**，再做**git merge**。
+
+	$ git fetch origin gh-pages
+	$ git merge origin/gh-pages
+
+在某些场合，Git会自动在本地分支与远程分支之间，建立一种追踪关系(tracking)。比如，在**git clone**的时候，所有的本地分支默认与远程主机的同名分支，建立追踪关系，也就是说，本地的**master**分支自动"追踪"**origin/master**分支。
+
+Git也允许手动建立追踪关系。
+
+`$ git branch --track master origin/master`
+
+上面的命令指定**master**分支追踪**origin/master**分支。
+
+如果当前分支与远程分支存在追踪关系，**git pull**就可以省略远程分支名。
+
+那么Git如何查看跟踪分支？其实这个信息实际是存在config文件中的，可以用夏目命令来查看**master**分支的信息。
+
+`$ git config -l | grep 'branch\.master'`
+
+比如下面的打印说明**master**分支**track**的是**origin**主机的**master**分支。
+
+	$ git config -l | grep 'branch\.master'
+	branch.master.remote=origin
+	branch.master.merge=refs/heads/master
