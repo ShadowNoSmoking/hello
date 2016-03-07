@@ -137,8 +137,6 @@ Git也允许手动建立追踪关系。
 
 上面的命令指定**master**分支追踪**origin/master**分支。
 
-如果当前分支与远程分支存在追踪关系，**git pull**就可以省略远程分支名。
-
 那么Git如何查看跟踪分支？其实这个信息实际是存在config文件中的，可以用夏目命令来查看**master**分支的信息。
 
 `$ git config -l | grep 'branch\.master'`
@@ -148,3 +146,19 @@ Git也允许手动建立追踪关系。
 	$ git config -l | grep 'branch\.master'
 	branch.master.remote=origin
 	branch.master.merge=refs/heads/master
+
+如果当前分支与远程分支存在追踪关系，**git pull**就可以省略远程分支名。
+
+`$ git pull origin`
+
+上面的命令表示，本地的当前分支自动与对应的**origin**主机""追踪分支""(remote-tracking-branch)进行合并。
+
+如果当前分支只有一个追踪分支，连远程主机名都可以省略。
+
+`$ git pull`
+
+上面的命令表示，当前分支自动与唯一一个追踪分支进行合并。
+
+如果合并需要采用**rebase**模式，可以使用**--rebase**选项。
+
+`$ git pull --rebase <远程主机名> <远程分支名>:<本地分支名>`
