@@ -12,7 +12,7 @@
 
 比如，克隆本人远程主机的hello版本库
 
-`$ git clone https://github.com/tenterrain/hello.git`
+`$ git clone https://github.com/geemo/hello.git`
 
 该命令会在本机生成一个目录，与远程主机的版本库同名，如果指定不同的目录名，可将目录名作为**git 
 clone**的第二个参数
@@ -33,14 +33,14 @@ clone**的第二个参数
 使用**-v**选项，可以参看远程主机的网址。
 
 	$ git remote -v
-	origin  https://github.com/tenterrain/hello.git(fetch)
-	origin  https://github.com/tenterrain/hello.git(push)
+	origin  https://github.com/geemo/hello.git(fetch)
+	origin  https://github.com/geemo/hello.git(push)
 
 上面的命令表示，当前只有一台远程主机，叫做origin，以及它的网址。
 
 克隆版本库的时候，所使用的远程主机自动被Git命名为**origin**。如果想用其他的主机名，需要用**git clone**命令的**-o**选项指定
 
-	$ git clone -o hello https://github.com/tenterrain/hello.git
+	$ git clone -o hello https://github.com/geemo/hello.git
 	$ git remote
 	hello
 
